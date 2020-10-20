@@ -151,7 +151,7 @@
 				<!-- description -->
 				<div class="form-group">
 					<label for="description"> Description</label>
-					<textarea type="text" rows="5" class="form-control"
+					<textarea  type="text" rows="5" class="form-control"
 						id="description" th:value="${product.description}"
 						required="required" placeholder="Description" name="description"></textarea>
 					<span class="help-block">Description of the product</span>
@@ -169,8 +169,8 @@
 				</div>
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-success">Add Image</button>
-					<a class="btb btn-danger" th:href="@{/}" />
+					<button type="submit" class="btn btn-success">Add Product</button>
+					<a class="btn btn-danger" th:href="@{/}" >Cancel</a>
 
 
 				</div>
@@ -179,7 +179,7 @@
 
 
 
-				<button type="submit" class="btn btn-primary">Submit</button>
+				
 		</form>
 		</fieldset>
 

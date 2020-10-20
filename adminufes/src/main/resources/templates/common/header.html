@@ -3,6 +3,9 @@
 <head th:fragment="common-header">
 <meta charset="utf-8" />
 
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
 <!-- Jquery  -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,6 +25,12 @@
 	crossorigin="anonymous">
 
 <link rel="icon" href="/image/icon.png" />
+
+
+
+<link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+<link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" /> 
+<link th:href="@{/css/font-awsome.min.css}" rel="stylesheet" />
 
 <style>
 .bd-placeholder-img {
@@ -62,8 +71,8 @@
     Products menu
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" th:href="@{product/add}">Add a new product</a>
-    <a class="dropdown-item" th:href="@{product/productList}">Product list</a>
+    <a class="dropdown-item" th:href="@{/product/add}">Add a new product</a>
+    <a class="dropdown-item" th:href="@{/product/productList}">Product list</a>
     
   </div>
       </li>  
@@ -90,6 +99,11 @@
 							.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
 		</script>
 		<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		
+		<!-- data table -->
+	 <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTables.bootstarp.min.js}"></script> 
+		
 	</div>
 
 </body>
