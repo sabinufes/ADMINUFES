@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header " />
+
+<body>
+
+
+	<!-- Static navbar -->
+
+	<div th:replace="common/header :: navbar"></div>
+
+	<!-- Start of container -->
+	<div class="container">
+
+
+		<form class="form-horizontal" th:action="@{/product/updateProduct}"
+			method="post" enctype="multipart/form-data">
+
+			<fieldset>
+
+
+				<legend class="center-block">
+					Update Product Information<span style="font-size: small">* is a
+						required field</span>
+				</legend>
+
+               <input hidden="hidden" name="id" th:value="${product.id}" />
+
+				<!-- name -->
+				<div class="form-group">
+					<label for="product">* Product Name</label> <input type="text"
+						class="form-control" id="name" th:value="${product.name}"
+						required="required" placeholder="Product Name" name="name" /> <span
+						class="help-block">Name of the product</span>
+				</div>
+
+				<!-- brand  -->
+				<div class="form-group">
+					<label for="brand">* Brand</label> <input type="text"
+						class="form-control" id="brand" th:value="${product.brand}"
+						required="required" placeholder="Brand" name="brand" /> <span
+						class="help-block">Brand of the product</span>
+				</div>
+				<!-- collection  -->
+				<div class="form-group">
+					<label for="collection"> Collection</label> <input type="text"
+						class="form-control" id="collection"
+						th:value="${product.collection}" placeholder="Collection"
+						name="colelction" /> <span class="help-block">Collection</span>
+				</div>
+				<!-- size -->
+				<div class="form-group">
+					<div class="col-8">
+						<label for="size">* Size</label> <input type="text"
+							class="form-control" id="size" th:value="${product.size}"
+							required="required" placeholder="Size" name="size" /> <span
+							class="help-block">Avalabile size for the product</span>
+					</div>
+
+				</div>
+				<!-- sex -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="sex"> Sex</label>
+					<div class="col-8">
+						<select th:value="${product.sex}" id="sex" name="sex"
+							class="form=control">
+
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select>
+					</div>
+
+				</div>
+				<!-- category -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="category">Category</label>
+					<div class="col-8">
+						<select th:value="${product.category}" name="category"
+							id="category" class="form=control">
+
+							<option value="" selected="selected" disabled="disabled">Please
+								select an option..</option>
+							<option value="Sport"
+								th:selected="(${product.category}=='Sport')">Sport</option>
+							<option value="Casual"
+								th:selected="(${product.category}=='Casual')">Casual</option>
+							<option value="Polo" th:selected="(${product.category}=='Polo')">Polo</option>
+						</select>
+					</div>
+
+				</div>
+
+				<!-- list price -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="listPrice">* List
+						Price</label>
+					<div class="col-3">
+						<div class="input-group">
+							<span class="input-group-text" id="addon-wrapping">Lei</span> <input
+								th:value="${product.listPrice}" name="listPrice" type="number"
+								class="form-control" id="listPrice" placeholder="List Price" />
+
+						</div>
+						<span class="help-block">List price of the product</span>
+					</div>
+
+				</div>
+				<!-- price -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="price">* Price</label>
+					<div class="col-3">
+						<div class="input-group">
+							<span class="input-group-text" id="addon-wrapping">Lei</span> <input
+								th:value="${product.price}" name="price" type="number"
+								class="form-control" id="listPrice" placeholder="Price" />
+
+						</div>
+						<span class="help-block">Price of the product</span>
+					</div>
+
+				</div>
+
+				<!-- stock  -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="inStockNumber">Number
+						in stock</label>
+					<div class="col-8">
+
+						<input th:value="${product.inStockNumber}" name="inStockNumber"
+							type="number" class="form-control" id="inStockNumber"
+							placeholder="Number of in-stock products" /> <span
+							class="help-block">Price of the product</span>
+					</div>
+
+				</div>
+				<!-- status -->
+				<div class="form-group">
+					<label class="col-2 control-label" for="status">* Status </label>
+					<div class="col-8">
+
+						<label> <input value="true" name="active" type="radio"
+							checked="checked" />Active
+						</label> <label> <input value="false" name="active" type="radio" />
+							Inactive
+						</label> <br> <span class="help-block">Avalability of the
+							product</span>
+					</div>
+
+				</div>
+
+				<!-- description -->
+				<div class="form-group">
+					<label for="description"> Description</label>
+					<textarea type="text" rows="5" class="form-control"
+						id="description" th:value="${product.description}" th:text="${product.description}"
+						required="required" placeholder="Description" name="description"></textarea>
+					<span class="help-block">Description of the product</span>
+				</div>
+				<!-- upload image -->
+				<div class="form-group">
+					<div class="col-4">
+						<label for="productImage">Upload product image</label>
+					</div>
+					<div class="col-8">
+						<input id="productImage" type="file" name="productImage"
+							th:value="${product.productImage}" />
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">Update Product</button>
+					<a class="btn btn-danger" th:href="@{/product/productInfo(id=${product.id})}" >Cancel</a>
+
+
+				</div>
+
+
+
+
+
+				
+		</form>
+		</fieldset>
+
+
+	</div>
+	<!-- end of container -->
+
+
+
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</html>
